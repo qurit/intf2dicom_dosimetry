@@ -33,7 +33,7 @@ def intf2dcm(headerfile):
     pixeldata /= dose_scaling_factor
     pixeldata = pixeldata.astype(np.int32)
 
-    ds = pydicom.read_file('/home/ubuntu/intf2dicom/template.dcm')
+    ds = pydicom.read_file(os.path.join(str(Path(os.path.realpath(__file__)).parent), "template.dcm"))
     ds.BitsAllocated = 32
     ds.Rows = dim1
     ds.Columns = dim2
